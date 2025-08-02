@@ -1,0 +1,1 @@
+// React app entry placeholder - full React app should be initialized here.
