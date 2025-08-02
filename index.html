@@ -1,12 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Priyanshu Raj | Portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src="./main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Priyanshu Raj | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: #f8fafc;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 20px;
+      background: url('https://www.transparenttextures.com/patterns/black-linen.png');
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    header p {
+      color: #94a3b8;
+      font-size: 1.2rem;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      border-bottom: 2px solid #334155;
+      margin-bottom: 20px;
+      padding-bottom: 5px;
+    }
+
+    .projects,
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #334155;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .skills span {
+      background: #334155;
+      padding: 8px 12px;
+      border-radius: 6px;
+      display: inline-block;
+      margin: 4px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 20px;
+      color: #64748b;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Priyanshu Raj</h1>
+    <p>Data Science Graduate | Prompt Engineer | AI + Analytics Enthusiast</p>
+    <p>
+      <a href="mailto:ipriyanshu009@gmail.com" style="color:#38bdf8">Email</a> |
+      <a href="https://www.linkedin.com/in/priyanshuraj009/" style="color:#38bdf8">LinkedIn</a> |
+      <a href="https://github.com/priyanshuraj009" style="color:#38bdf8">GitHub</a>
+    </p>
+  </header>
+
+  <section>
+    <h2>Experience at NVIDIA</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>AV Alpamayo Project</h3>
+        <p>Annotated ego-centric driving videos for object, lane, and traffic element labeling to train autonomous
+          vehicle perception systems.</p>
+      </div>
+      <div class="card">
+        <h3>NeMo Video Dense Captioning</h3>
+        <p>Created over 350 multimodal video captions to support LLM training using contextual grounding and
+          SuperAnnotate toolset.</p>
+      </div>
+      <div class="card">
+        <h3>Skeleton Motion Description</h3>
+        <p>Performed 400+ human motion annotations and 300+ QA reviews for action understanding models.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <img src="https://user-images.githubusercontent.com/placeholder/battery.jpg" alt="Battery Management" />
+        <h3>Intelligent Battery Management</h3>
+        <p>Developed a machine learning-based tool to predict battery health based on cycle count and temperature.</p>
+      </div>
+      <div class="card">
+        <img src="https://user-images.githubusercontent.com/placeholder/medvoice.jpg" alt="Med Voice" />
+        <h3>Med-Voice</h3>
+        <p>Built a speech-to-text GUI application that transcribes voice-based medical prescriptions using Python.</p>
+      </div>
+      <div class="card">
+        <img src="https://user-images.githubusercontent.com/placeholder/chatbot.jpg" alt="Chatbot" />
+        <h3>Medical Chatbot</h3>
+        <p>Designed a lightweight HTML/CSS/JS chatbot to handle user medical queries via a rule-based interface.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <span>Python</span>
+      <span>SQL</span>
+      <span>Excel</span>
+      <span>Power BI</span>
+      <span>Prompt Engineering</span>
+      <span>Data Annotation</span>
+      <span>LLMs</span>
+      <span>Jupyter</span>
+      <span>Git</span>
+      <span>Deep Learning</span>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Priyanshu Raj — Built with 💙 HTML & CSS
+  </footer>
+</body>
+
 </html>
