@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,92 +14,87 @@
       color: #f8fafc;
       line-height: 1.6;
     }
-
     header {
       text-align: center;
       padding: 60px 20px 20px;
       background: url('https://www.transparenttextures.com/patterns/black-linen.png');
+      animation: slideFade 2s ease-out;
     }
-
     header h1 {
       font-size: 3rem;
       margin-bottom: 10px;
-      animation: fadeIn 1s ease-in-out;
     }
-
     header p {
       color: #94a3b8;
       font-size: 1.2rem;
     }
-
     section {
       max-width: 1000px;
       margin: auto;
       padding: 40px 20px;
     }
-
     h2 {
       font-size: 2rem;
       border-bottom: 2px solid #334155;
       margin-bottom: 20px;
       padding-bottom: 5px;
     }
-
-    .projects,
-    .skills {
+    .projects, .skills, .interests {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
-
     .card {
       background: #1e293b;
       border-radius: 10px;
       padding: 20px;
       border: 1px solid #334155;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: transform 0.3s;
+      animation: fadeInUp 1s ease;
     }
-
     .card:hover {
       transform: translateY(-5px);
     }
-
     .card img {
       width: 100%;
       border-radius: 6px;
       margin-bottom: 10px;
     }
-
     .skills span {
       background: #334155;
       padding: 8px 12px;
       border-radius: 6px;
       display: inline-block;
       margin: 4px;
+      animation: fadeIn 1s ease-in-out;
     }
-
     footer {
       text-align: center;
       font-size: 0.9rem;
       padding: 20px;
       color: #64748b;
     }
-
+    .ai-art {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 20px;
+      border: 2px solid #334155;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideFade {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
-
 <body>
   <header>
     <h1>Priyanshu Raj</h1>
@@ -117,13 +111,11 @@
     <div class="projects">
       <div class="card">
         <h3>AV Alpamayo Project</h3>
-        <p>Annotated ego-centric driving videos for object, lane, and traffic element labeling to train autonomous
-          vehicle perception systems.</p>
+        <p>Annotated ego-centric driving videos for object, lane, and traffic element labeling to train autonomous vehicle perception systems.</p>
       </div>
       <div class="card">
         <h3>NeMo Video Dense Captioning</h3>
-        <p>Created over 350 multimodal video captions to support LLM training using contextual grounding and
-          SuperAnnotate toolset.</p>
+        <p>Created over 350 multimodal video captions to support LLM training using contextual grounding and SuperAnnotate toolset.</p>
       </div>
       <div class="card">
         <h3>Skeleton Motion Description</h3>
@@ -136,17 +128,17 @@
     <h2>Projects</h2>
     <div class="projects">
       <div class="card">
-        <img src="https://user-images.githubusercontent.com/placeholder/battery.jpg" alt="Battery Management" />
+        <img src="https://source.unsplash.com/featured/?battery,technology" alt="Battery Management" />
         <h3>Intelligent Battery Management</h3>
         <p>Developed a machine learning-based tool to predict battery health based on cycle count and temperature.</p>
       </div>
       <div class="card">
-        <img src="https://user-images.githubusercontent.com/placeholder/medvoice.jpg" alt="Med Voice" />
+        <img src="https://source.unsplash.com/featured/?ai,voice" alt="Med Voice" />
         <h3>Med-Voice</h3>
         <p>Built a speech-to-text GUI application that transcribes voice-based medical prescriptions using Python.</p>
       </div>
       <div class="card">
-        <img src="https://user-images.githubusercontent.com/placeholder/chatbot.jpg" alt="Chatbot" />
+        <img src="https://source.unsplash.com/featured/?chatbot,medical" alt="Chatbot" />
         <h3>Medical Chatbot</h3>
         <p>Designed a lightweight HTML/CSS/JS chatbot to handle user medical queries via a rule-based interface.</p>
       </div>
@@ -169,9 +161,26 @@
     </div>
   </section>
 
+  <section>
+    <h2>Interests & AI Artwork</h2>
+    <div class="interests">
+      <div class="card">
+        <h3>Human-AI Collaboration</h3>
+        <p>Passionate about improving communication between humans and machines through meaningful data and model alignment.</p>
+      </div>
+      <div class="card">
+        <h3>Data Storytelling</h3>
+        <p>Love transforming structured data into actionable insights with dashboards, charts, and natural language summaries.</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/featured/?generative,art" class="ai-art" alt="AI Art" />
+        <p style="text-align:center">Generated art inspiration: Generative AI meets creativity.</p>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    &copy; 2025 Priyanshu Raj — Built with 💙 HTML & CSS
+    &copy; 2025 Priyanshu Raj — Built with 💙 HTML, CSS & AI imagination
   </footer>
 </body>
-
 </html>
