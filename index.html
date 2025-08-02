@@ -5,20 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Priyanshu Raj | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
   <style>
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
       color: #f8fafc;
       line-height: 1.6;
     }
     header {
       text-align: center;
-      padding: 60px 20px 20px;
-      background: url('https://www.transparenttextures.com/patterns/black-linen.png');
+      padding: 60px 20px 40px;
+      background: #020617;
       animation: slideFade 2s ease-out;
+      position: relative;
     }
     header h1 {
       font-size: 3rem;
@@ -28,52 +31,62 @@
       color: #94a3b8;
       font-size: 1.2rem;
     }
-    section {
-      max-width: 1000px;
+    .lottie-container {
+      width: 60px;
+      height: 60px;
       margin: auto;
-      padding: 40px 20px;
+      margin-bottom: 20px;
+    }
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px;
     }
     h2 {
       font-size: 2rem;
       border-bottom: 2px solid #334155;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       padding-bottom: 5px;
     }
     .projects, .skills, .interests {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
     }
     .card {
       background: #1e293b;
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 20px;
       border: 1px solid #334155;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
-      animation: fadeInUp 1s ease;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
     }
     .card:hover {
-      transform: translateY(-5px);
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
     }
     .card img {
       width: 100%;
-      border-radius: 6px;
+      border-radius: 10px;
       margin-bottom: 10px;
     }
     .skills span {
       background: #334155;
-      padding: 8px 12px;
-      border-radius: 6px;
+      padding: 10px 14px;
+      border-radius: 8px;
       display: inline-block;
-      margin: 4px;
+      margin: 6px;
+      font-weight: 600;
       animation: fadeIn 1s ease-in-out;
     }
     footer {
       text-align: center;
       font-size: 0.9rem;
-      padding: 20px;
+      padding: 30px 10px;
       color: #64748b;
+      background: #0f172a;
     }
     .ai-art {
       max-width: 100%;
@@ -82,7 +95,7 @@
       border: 2px solid #334155;
     }
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
     @keyframes slideFade {
@@ -97,6 +110,7 @@
 </head>
 <body>
   <header>
+    <div class="lottie-container" id="animation"></div>
     <h1>Priyanshu Raj</h1>
     <p>Data Science Graduate | Prompt Engineer | AI + Analytics Enthusiast</p>
     <p>
@@ -182,5 +196,15 @@
   <footer>
     &copy; 2025 Priyanshu Raj — Built with 💙 HTML, CSS & AI imagination
   </footer>
+
+  <script>
+    const animation = lottie.loadAnimation({
+      container: document.getElementById('animation'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets7.lottiefiles.com/packages/lf20_myejiggj.json'
+    });
+  </script>
 </body>
 </html>
