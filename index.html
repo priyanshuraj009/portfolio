@@ -1,209 +1,530 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Priyanshu Raj | Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Priyanshu Raj — Futuristic Portfolio</title>
+
+  <!-- Fonts & icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Devicon CDN for tech logos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+  <!-- Favicon -->
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" type="image/png">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom right, #0f172a, #1e293b);
-      color: #f8fafc;
-      line-height: 1.6;
+    :root{
+      --bg-1: #05060a;
+      --bg-2: #081125;
+      --glass: rgba(255,255,255,0.04);
+      --muted: #9aa8c0;
+      --accent: #00e6ff;
+      --accent-2: #a020ff;
+      --card-border: rgba(255,255,255,0.06);
+      --glass-blur: 10px;
+      --radius: 14px;
+      --max-width: 1120px;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-    header {
-      text-align: center;
-      padding: 60px 20px 40px;
-      background: #020617;
-      animation: slideFade 2s ease-out;
-      position: relative;
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      min-height:100vh;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(160,32,255,0.08), transparent),
+                  radial-gradient(900px 400px at 90% 90%, rgba(0,230,255,0.05), transparent),
+                  linear-gradient(180deg,var(--bg-1), var(--bg-2));
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding-bottom:80px;
     }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+
+    /* layout */
+    .container{ max-width:var(--max-width); margin:0 auto; padding:28px; }
+
+    header{
+      position:relative;
+      margin:18px auto 34px;
+      padding:24px;
+      border-radius:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--card-border);
+      backdrop-filter: blur(var(--glass-blur));
+      display:flex;
+      gap:20px;
+      align-items:center;
     }
-    header p {
-      color: #94a3b8;
-      font-size: 1.2rem;
+
+    .brand {
+      display:flex;
+      gap:18px;
+      align-items:center;
     }
-    .lottie-container {
-      width: 60px;
-      height: 60px;
-      margin: auto;
-      margin-bottom: 20px;
+    .avatar {
+      width:84px;
+      height:84px;
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(0,0,0,0.2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6), 0 0 24px rgba(0,230,255,0.03);
     }
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 50px 20px;
+    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    .title {
+      line-height:1;
     }
-    h2 {
-      font-size: 2rem;
-      border-bottom: 2px solid #334155;
-      margin-bottom: 30px;
-      padding-bottom: 5px;
+    .title h1{ margin:0; font-size:1.6rem; letter-spacing:0.4px; }
+    .title p{ margin:4px 0 0; color:var(--muted); font-size:0.92rem; }
+
+    .links { margin-left:auto; display:flex; gap:8px; align-items:center; }
+    .links a{
+      text-decoration:none;
+      font-weight:600;
+      color:var(--accent);
+      background:linear-gradient(90deg, rgba(0,230,255,0.06), rgba(160,32,255,0.03));
+      padding:8px 12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);
+      font-size:0.9rem;
     }
-    .projects, .skills, .interests {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+
+    /* nav */
+    nav{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      margin:18px 0;
     }
-    .card {
-      background: #1e293b;
-      border-radius: 12px;
-      padding: 20px;
-      border: 1px solid #334155;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-      animation: fadeInUp 1s ease forwards;
-      opacity: 0;
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:12px;
+      font-weight:600;
+      transition:all .18s ease;
+      font-size:0.92rem;
     }
-    .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    nav a:hover, nav a.active{ color:var(--accent); transform:translateY(-3px); }
+
+    main { display:grid; gap:28px; }
+
+    /* hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:26px;
+      align-items:center;
     }
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
+    .hero-card{
+      padding:22px;
+      border-radius:16px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--card-border);
+      backdrop-filter: blur(8px);
     }
-    .skills span {
-      background: #334155;
-      padding: 10px 14px;
-      border-radius: 8px;
-      display: inline-block;
-      margin: 6px;
-      font-weight: 600;
-      animation: fadeIn 1s ease-in-out;
+    .hero h2{ margin:0 0 10px; font-size:1.3rem; }
+    .hero p{ color:var(--muted); margin:0 0 16px; }
+    .cta-row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    .btn{
+      padding:10px 14px;
+      border-radius:10px;
+      background: linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#02121a;
+      font-weight:700;
+      text-decoration:none;
+      border: none;
+      cursor:pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
     }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      padding: 30px 10px;
-      color: #64748b;
-      background: #0f172a;
+    .btn.secondary{
+      background:transparent;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.04);
     }
-    .ai-art {
-      max-width: 100%;
-      border-radius: 12px;
-      margin-top: 20px;
-      border: 2px solid #334155;
+
+    /* projects grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    .card{
+      padding:14px;
+      border-radius:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border:1px solid var(--card-border);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      transition: transform .25s ease, box-shadow .25s ease;
+      overflow:hidden;
     }
-    @keyframes slideFade {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
+    .card:hover{ transform: translateY(-8px) scale(1.01); box-shadow: 0 12px 40px rgba(0,0,0,0.7); }
+
+    .project-media{
+      width:100%;
+      height:160px;
+      border-radius:8px;
+      overflow:hidden;
+      background:linear-gradient(90deg, rgba(0,0,0,0.25), rgba(255,255,255,0.02));
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .project-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    .tech-row{ display:flex; gap:10px; margin-top:10px; flex-wrap:wrap; align-items:center; }
+    .tech {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 8px;
+      font-weight:600;
+      color:var(--muted);
+      border-radius:8px;
+      background:rgba(255,255,255,0.01);
+      border:1px solid rgba(255,255,255,0.02);
+      font-size:0.85rem;
     }
+    .tech i{ font-size:18px; color:var(--accent); }
+
+    /* skills */
+    .skills-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+    }
+    .skill-card{
+      padding:12px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.0));
+      border:1px solid rgba(255,255,255,0.03);
+      color:var(--muted);
+      font-weight:700;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .skill-list{ display:flex; gap:8px; flex-wrap:wrap; }
+    .skill-pill{
+      padding:6px 8px;
+      border-radius:8px;
+      background:rgba(255,255,255,0.02);
+      color:#e6eef8;
+      font-weight:600;
+      font-size:0.85rem;
+    }
+
+    /* interest footer */
+    footer{
+      max-width:var(--max-width);
+      margin:48px auto 12px;
+      padding:18px;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    /* Utilities & responsiveness */
+    @media (max-width: 1050px){
+      .hero{ grid-template-columns: 1fr 320px; }
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+      .skills-grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px){
+      header{ flex-direction:column; align-items:flex-start; gap:12px; }
+      nav{ overflow:auto; padding:6px 8px; }
+      .hero{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+      .skills-grid{ grid-template-columns: 1fr; }
+      .links{ width:100%; justify-content:space-between }
+    }
+
+    /* small animations */
+    .reveal { opacity:0; transform:translateY(18px); transition:all .6s cubic-bezier(.16,.9,.35,1); }
+    .reveal.visible{ opacity:1; transform:none; }
+    .neon {
+      text-shadow: 0 0 12px rgba(0,230,255,0.12), 0 0 28px rgba(160,32,255,0.05);
+    }
+
   </style>
 </head>
 <body>
-  <header>
-    <div class="lottie-container" id="animation"></div>
-    <h1>Priyanshu Raj</h1>
-    <p>Data Science Graduate | Prompt Engineer | AI + Analytics Enthusiast</p>
-    <p>
-      <a href="mailto:ipriyanshu009@gmail.com" style="color:#38bdf8">Email</a> |
-      <a href="https://www.linkedin.com/in/priyanshuraj009/" style="color:#38bdf8">LinkedIn</a> |
-      <a href="https://github.com/priyanshuraj009" style="color:#38bdf8">GitHub</a>
-    </p>
-  </header>
 
-  <section>
-    <h2>Experience at NVIDIA</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>AV Alpamayo Project</h3>
-        <p>Annotated ego-centric driving videos for object, lane, and traffic element labeling to train autonomous vehicle perception systems.</p>
-      </div>
-      <div class="card">
-        <h3>NeMo Video Dense Captioning</h3>
-        <p>Created over 350 multimodal video captions to support LLM training using contextual grounding and SuperAnnotate toolset.</p>
-      </div>
-      <div class="card">
-        <h3>Skeleton Motion Description</h3>
-        <p>Performed 400+ human motion annotations and 300+ QA reviews for action understanding models.</p>
-      </div>
-    </div>
-  </section>
+  <!-- Lottie -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js" defer></script>
 
-  <section>
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <img src="https://source.unsplash.com/featured/?battery,technology" alt="Battery Management" />
-        <h3>Intelligent Battery Management</h3>
-        <p>Developed a machine learning-based tool to predict battery health based on cycle count and temperature.</p>
+  <div class="container">
+    <header role="banner" aria-label="Priyanshu header">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true">
+          <!-- Replace src with your photo -->
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&crop=faces" alt="Priyanshu Raj">
+        </div>
+        <div class="title">
+          <h1 class="neon">Priyanshu Raj</h1>
+          <p>Data Science Graduate • Prompt Engineer • AI + Analytics Enthusiast</p>
+          <div style="margin-top:6px;font-size:0.85rem;color:var(--muted)">
+            NVIDIA annotator — Video dense captioning • AV • Motion
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <img src="https://source.unsplash.com/featured/?ai,voice" alt="Med Voice" />
-        <h3>Med-Voice</h3>
-        <p>Built a speech-to-text GUI application that transcribes voice-based medical prescriptions using Python.</p>
-      </div>
-      <div class="card">
-        <img src="https://source.unsplash.com/featured/?chatbot,medical" alt="Chatbot" />
-        <h3>Medical Chatbot</h3>
-        <p>Designed a lightweight HTML/CSS/JS chatbot to handle user medical queries via a rule-based interface.</p>
-      </div>
-    </div>
-  </section>
 
-  <section>
-    <h2>Skills</h2>
-    <div class="skills">
-      <span>Python</span>
-      <span>SQL</span>
-      <span>Excel</span>
-      <span>Power BI</span>
-      <span>Prompt Engineering</span>
-      <span>Data Annotation</span>
-      <span>LLMs</span>
-      <span>Jupyter</span>
-      <span>Git</span>
-      <span>Deep Learning</span>
-    </div>
-  </section>
+      <div class="links" role="navigation" aria-label="contact links">
+        <a href="mailto:ipriyanshu009@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/priyanshuraj009/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/priyanshuraj009" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="#" role="button" aria-label="Download resume">Resume</a>
+      </div>
+    </header>
 
-  <section>
-    <h2>Interests & AI Artwork</h2>
-    <div class="interests">
-      <div class="card">
-        <h3>Human-AI Collaboration</h3>
-        <p>Passionate about improving communication between humans and machines through meaningful data and model alignment.</p>
-      </div>
-      <div class="card">
-        <h3>Data Storytelling</h3>
-        <p>Love transforming structured data into actionable insights with dashboards, charts, and natural language summaries.</p>
-      </div>
-      <div class="card">
-        <img src="https://source.unsplash.com/featured/?generative,art" class="ai-art" alt="AI Art" />
-        <p style="text-align:center">Generated art inspiration: Generative AI meets creativity.</p>
-      </div>
-    </div>
-  </section>
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-  <footer>
-    &copy; 2025 Priyanshu Raj — Built with 💙 HTML, CSS & AI imagination
-  </footer>
+    <main>
+      <!-- HERO -->
+      <section id="about" class="hero">
+        <div class="hero-card reveal">
+          <h2>Hi — I'm Priyanshu</h2>
+          <p>Data scientist & prompt engineer with hands-on experience in multimodal annotation for autonomous vehicles, dense video captioning, and human motion understanding. I turn data into reliable models and clear insights.</p>
+
+          <div class="cta-row" style="margin-top:14px">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn secondary" href="mailto:ipriyanshu009@gmail.com">Let's talk</a>
+            <a class="btn secondary" href="#" aria-label="Download resume (PDF)">Download CV</a>
+          </div>
+
+          <div style="margin-top:18px;color:var(--muted);font-size:0.92rem">
+            <strong>Availability:</strong> Open to Data Analyst / ML & AI roles.
+          </div>
+        </div>
+
+        <!-- Lottie panel -->
+        <aside class="hero-card reveal" aria-hidden="true" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <div id="lottie" style="width:260px;height:260px"></div>
+          <div style="margin-top:8px;color:var(--muted);font-size:0.9rem;text-align:center">
+            Futuristic interfaces • Data-driven design
+          </div>
+        </aside>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="reveal">
+        <h2 style="margin-bottom:12px">Experience at NVIDIA</h2>
+        <div class="grid">
+          <article class="card" aria-labelledby="e1">
+            <div class="project-media">
+              <img loading="lazy" src="https://source.unsplash.com/collection/190727/800x600" alt="Autonomous vehicle scene">
+            </div>
+            <div style="margin-top:12px">
+              <h3 id="e1">AV Alpamayo Project</h3>
+              <p style="color:var(--muted);margin:6px 0 8px">Annotated ego-centric driving videos — object/lane/traffic labeling for perception models.</p>
+              <div class="tech-row">
+                <span class="tech"><i class="devicon-python-plain"></i> Python</span>
+                <span class="tech"><i class="devicon-git-plain"></i> SuperAnnotate</span>
+                <span class="tech"><i class="devicon-linux-plain"></i> Linux</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="e2">
+            <div class="project-media">
+              <img loading="lazy" src="https://source.unsplash.com/featured/?video,captioning" alt="Video captioning">
+            </div>
+            <div style="margin-top:12px">
+              <h3 id="e2">NeMo Video Dense Captioning</h3>
+              <p style="color:var(--muted);margin:6px 0 8px">350+ multimodal captions to support LLM training and contextual grounding.</p>
+              <div class="tech-row">
+                <span class="tech"><i class="devicon-pytorch-original"></i> PyTorch</span>
+                <span class="tech"><i class="devicon-python-plain"></i> Python</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="e3">
+            <div class="project-media">
+              <img loading="lazy" src="https://source.unsplash.com/featured/?motion,capture" alt="Motion annotations">
+            </div>
+            <div style="margin-top:12px">
+              <h3 id="e3">Skeleton Motion Description</h3>
+              <p style="color:var(--muted);margin:6px 0 8px">400+ motion annotations & 300+ QA reviews for action understanding models.</p>
+              <div class="tech-row">
+                <span class="tech"><i class="devicon-python-plain"></i> Python</span>
+                <span class="tech"><i class="devicon-javascript-plain"></i> JavaScript</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="reveal">
+        <h2 style="margin-bottom:12px">Projects</h2>
+        <div class="grid">
+          <article class="card" aria-labelledby="p1">
+            <div class="project-media">
+              <img loading="lazy" src="https://source.unsplash.com/featured/?battery,technology" alt="Intelligent Battery Management">
+            </div>
+            <div style="margin-top:12px">
+              <h3 id="p1">Intelligent Battery Management</h3>
+              <p style="color:var(--muted);margin:6px 0 8px">ML tool to predict battery health using cycle and temperature features.</p>
+              <div class="tech-row">
+                <span class="tech"><i class="devicon-python-plain"></i> Python</span>
+                <span class="tech"><i class="devicon-sqlite-plain"></i> MySQL</span>
+                <span class="tech"><i class="devicon-scikit-learn-plain"></i> ML</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="p2">
+            <div class="project-media">
+              <img loading="lazy" src="https://source.unsplash.com/featured/?ai,voice" alt="Med Voice">
+            </div>
+            <div style="margin-top:12px">
+              <h3 id="p2">Med-Voice</h3>
+              <p style="color:var(--muted);margin:6px 0 8px">Speech-to-text GUI that transcribes medical prescriptions for clinicians.</p>
+              <div class="tech-row">
+                <span class="tech"><i class="devicon-python-plain"></i> Python</span>
+                <span class="tech"><i class="devicon-javascript-plain"></i> GUI</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="p3">
+            <div class="project-media">
+              <img loading="lazy" src="https://source.unsplash.com/featured/?chatbot,medical" alt="Medical Chatbot">
+            </div>
+            <div style="margin-top:12px">
+              <h3 id="p3">Medical Chatbot</h3>
+              <p style="color:var(--muted);margin:6px 0 8px">Lightweight HTML/CSS/JS chatbot to answer common medical queries (rule-based).</p>
+              <div class="tech-row">
+                <span class="tech"><i class="devicon-html5-plain"></i> HTML</span>
+                <span class="tech"><i class="devicon-css3-plain"></i> CSS</span>
+                <span class="tech"><i class="devicon-javascript-plain"></i> JavaScript</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="reveal">
+        <h2 style="margin-bottom:12px">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card" aria-labelledby="s1">
+            <strong id="s1">Programming</strong>
+            <div class="skill-list">
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-card" aria-labelledby="s2">
+            <strong id="s2">Databases & DBMS</strong>
+            <div class="skill-list">
+              <span class="skill-pill">MySQL</span>
+              <span class="skill-pill">DBMS</span>
+              <span class="skill-pill">Excel</span>
+              <span class="skill-pill">Power BI</span>
+            </div>
+          </div>
+
+          <div class="skill-card" aria-labelledby="s3">
+            <strong id="s3">AI / ML</strong>
+            <div class="skill-list">
+              <span class="skill-pill">Deep Learning</span>
+              <span class="skill-pill">Data Science</span>
+              <span class="skill-pill">PyTorch</span>
+              <span class="skill-pill">LLMs</span>
+            </div>
+          </div>
+
+          <div class="skill-card" aria-labelledby="s4">
+            <strong id="s4">Tools & Practices</strong>
+            <div class="skill-list">
+              <span class="skill-pill">Jupyter</span>
+              <span class="skill-pill">Git</span>
+              <span class="skill-pill">Prompt Engineering</span>
+              <span class="skill-pill">Data Annotation</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="reveal">
+        <h2 style="margin-bottom:12px">Contact</h2>
+        <div class="card" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+          <div style="flex:1;min-width:240px">
+            <p style="color:var(--muted)">Want to collaborate? Email me or connect on LinkedIn. I respond promptly to messages about data science, ML roles, and annotation work.</p>
+            <p style="margin:8px 0 0">
+              <strong>Email:</strong> <a href="mailto:ipriyanshu009@gmail.com" style="color:var(--accent)">ipriyanshu009@gmail.com</a><br>
+              <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/priyanshuraj009/" target="_blank" rel="noopener" style="color:var(--accent)">/in/priyanshuraj009</a>
+            </p>
+          </div>
+          <form style="min-width:260px;flex:0 1 360px" onsubmit="event.preventDefault(); alert('Thanks — replace this with your form handler.');">
+            <label style="display:block;margin-bottom:8px;color:var(--muted)">Message</label>
+            <textarea required rows="4" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea>
+            <div style="margin-top:10px;display:flex;gap:8px;">
+              <button class="btn" type="submit">Send</button>
+              <button class="btn secondary" type="reset">Clear</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2025 Priyanshu Raj — Built with futuristic UI • Made for clarity
+    </footer>
+  </div>
 
   <script>
-    const animation = lottie.loadAnimation({
-      container: document.getElementById('animation'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'https://assets7.lottiefiles.com/packages/lf20_myejiggj.json'
+    // Lottie animation
+    document.addEventListener('DOMContentLoaded', function () {
+      try {
+        lottie.loadAnimation({
+          container: document.getElementById('lottie'),
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          path: 'https://assets7.lottiefiles.com/packages/lf20_myejiggj.json' // You can swap this
+        });
+      } catch (e) { /* no-op */ }
+
+      // reveal on scroll
+      const reveals = document.querySelectorAll('.reveal');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(en => {
+          if (en.isIntersecting) en.target.classList.add('visible');
+        });
+      }, { threshold: 0.12 });
+      reveals.forEach(r => obs.observe(r));
+
+      // Smooth scroll for nav
+      document.querySelectorAll('nav a').forEach(a => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const id = a.getAttribute('href').slice(1);
+          document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+          document.querySelectorAll('nav a').forEach(x => x.classList.remove('active'));
+          a.classList.add('active');
+        });
+      });
     });
   </script>
 </body>
